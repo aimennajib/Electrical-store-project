@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project/auth/presentation/login.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,15 @@ class MyApp extends StatelessWidget {
         
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const Login(),
+      home:  DD(),
     );
+  }
+}
+class DD extends StatelessWidget {
+  const DD({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
