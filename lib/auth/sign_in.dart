@@ -1,0 +1,202 @@
+import 'package:flutter/material.dart';
+
+import 'package:google_fonts/google_fonts.dart';
+import 'package:project/auth/login.dart';
+import 'package:project/pages/home_screen.dart';
+
+class SignIn extends StatelessWidget {
+  const SignIn({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    TextEditingController _controller1 = TextEditingController();
+    TextEditingController _controller2 = TextEditingController();
+    double height;
+
+    height = MediaQuery.of(context).size.height;
+    return Scaffold(
+      backgroundColor: Color(0xFF219ebc),
+
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 160,
+              width: double.infinity,
+              color: Color(0xFF219ebc),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(60.0),
+                    child: Text(
+                      " تسجيل الدخول",
+                      style: GoogleFonts.tajawal(
+                        textStyle: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 15),
+            Container(
+              height: height * 0.80,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
+              ),
+              child: Padding(
+                // padding: const EdgeInsets.only(left: 15, right: 15, top: 20),
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text("اسم المستخدم", textAlign: TextAlign.end),
+                      ],
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          borderSide: BorderSide(color: Color(0xFF219ebc)),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                      ),
+                      controller: _controller1,
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      children: [Text("كلمة المرور", textAlign: TextAlign.end)],
+                    ),
+                    TextField(
+                      obscureText: true,
+                      keyboardType: TextInputType.visiblePassword,
+                      decoration: InputDecoration(
+                        suffixIcon: Icon(Icons.visibility_off),
+
+                        // focusColor: Color(0xFF219ebc),
+                        // fillColor: Color(0xFF219ebc),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          borderSide: BorderSide(color: Color(0xFF219ebc)),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                      ),
+                      controller: _controller2,
+                    ),
+                    // SizedBox(height: 10),
+                    Row(
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Login()),
+                            );
+                          },
+                          child: Text(
+                            "هل نسيت كلمة المرور؟",
+                            textAlign: TextAlign.end,
+                            style: GoogleFonts.tajawal(
+                              textStyle: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFF219ebc),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    // SizedBox(height: 10),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF219ebc),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                        );
+                      },
+                      child: Text(
+                        'تسجيل الدخول',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    SizedBox(height: 30),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: 2,
+                          color: Color(0xFF219ebc),
+                          width: 140,
+                        ),
+                        Text("or"),
+                        Container(
+                          height: 2,
+                          color: Color(0xFF219ebc),
+                          width: 140,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF219ebc),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                        );
+                      },
+                      child: Text(
+                        ' تسجيل الدخول باستخدام جوجل',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Login()),
+                        );
+                      },
+                      child: Text(
+                        "لديك حساب؟  ",
+                        textAlign: TextAlign.end,
+                        style: GoogleFonts.tajawal(
+                          textStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            color: Color(0xFF219ebc),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
