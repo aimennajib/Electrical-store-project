@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/product_list/product.dart';
 
@@ -16,95 +17,80 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
       height: 190.0,
-      child: InkWell(
-        onTap: () {
-          press();
-        },
-        child: Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            Container(
-              height: 150.0,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          InkWell(
+            onTap: () => press(),
+            child: Container(
+              height: 130,
+              width: double.infinity,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(22),
                 color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
-                    offset: Offset(0, 15),
-                    blurRadius: 25,
-                    color: Colors.black12,
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: const Offset(0, 5),
+                  ),
+                ],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15, right: 5, left: 5),
+                    child: Column(
+                      children: [
+                        Text(
+                          product!.title,
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                        Text(
+                          product!.subTitle,
+                          style: TextStyle(fontSize: 12, color: Colors.black),
+                        ),
+
+                        SizedBox(height: 20),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 30.0,
+                              // vertical: 10.0,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Color(0xFFfcca46),
+                              borderRadius: BorderRadius.circular(22),
+                            ),
+                            child: Text('السعر: \$${product!.price}'),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  Image.asset(
+                    product!.image,
+                    height: 110,
+                    width: 120,
+                    fit: BoxFit.cover,
                   ),
                 ],
               ),
             ),
-            Positioned(
-              top: 40.0,
-              left: 0.0,
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
-                height: 130.0,
-                width: 150.0,
-                child: Image.asset(product!.image, fit: BoxFit.cover),
-              ),
-            ),
-            Positioned(
-              bottom: 0.0,
-              right: 0.0,
-              child: SizedBox(
-                height: 130.0,
-
-                width: size.width - 200,
-                child: Column(
-                  children: [
-                    Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Text(
-                        product!.title,
-                        style: GoogleFonts.tajawal(
-                          textStyle: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                      child: Text(
-                        product!.subTitle,
-                        style: TextStyle(
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
-                    ),
-                    Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 30.0,
-                          vertical: 10.0,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color(0xFFfcca46),
-                          borderRadius: BorderRadius.circular(22),
-                        ),
-                        child: Text('السعر: \$${product!.price}'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

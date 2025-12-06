@@ -19,10 +19,10 @@ class AboutUs extends StatelessWidget {
 
             children: [
               Text(
-                'هذا التطبيق تم تطويره كمشروع نهائي لمادة تطوير تطبيقات الموبايل.',
+                'نحن طلاب جامعيين قمنا بتطوير هذا التطبيق كمشروع نهائي لمادة تطوير تطبيقات الموبايل.',
                 style: GoogleFonts.tajawal(
                   textStyle: TextStyle(
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.w700,
                     // color: Colors.white,
                   ),
@@ -32,7 +32,7 @@ class AboutUs extends StatelessWidget {
                 "يهدف التطبيق إلى توفير تجربة تسوق سهلة وممتعة للمستخدمين.",
                 style: GoogleFonts.tajawal(
                   textStyle: TextStyle(
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.w700,
                     // color: Colors.white,
                   ),

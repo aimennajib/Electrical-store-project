@@ -11,13 +11,13 @@ class Product {
     required this.image,
   });
 
-  Product? operator [](int other) {}
+ 
 }
 
 List<Product> product = [
   Product(
     id: 1,
-    price: 50,
+    price: 100,
     title: 'سماعات لاسلكية',
     subTitle: 'سماعات عالية الجوده ينصح بشرائها  ',
     description:
@@ -44,7 +44,7 @@ List<Product> product = [
   ),
   Product(
     id: 4,
-    price: 10,
+    price: 50,
     title: ' سماعات',
     subTitle: ' استمتع لساعات طويلة',
     description:
